@@ -1,24 +1,8 @@
 #include<iostream>
 #include<string>
 #include <TGUI/TGUI.hpp>
+#include "GUI.h"
 
-//Print Something on the Concole
-void print_Someting(std::string text) 
-{
-    std::cout << text;
-};
-
-//Create a Button and Call the print_Something function.
-void MakeButton (std::string ButtonText,tgui::GuiBase& gui)
-{
-    auto button = tgui::Button::create(ButtonText);
-    button->setSize({ "50%", "16.67%" });
-    button->setPosition({ "25%", "70%" });
-    gui.add(button);
-
-    button->onPress(print_Someting,"Hello World\n");
-   
-}
 
 
 //For a easy debugging will show if a file counld not be opened in the console.
@@ -26,7 +10,7 @@ bool RunGUI(tgui::GuiBase& gui)
 {
     try
     {
-        MakeButton("Click Me", gui);
+        guicreator("Click Me", gui);
         return true;
     }
     catch (const tgui::Exception& e)
