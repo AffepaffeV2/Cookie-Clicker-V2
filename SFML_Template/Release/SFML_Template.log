@@ -4,8 +4,8 @@ C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repos
   (compiling source file 'GUI.cpp')
   
   Generating code
-  0 of 232 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  12 of 277 functions ( 4.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SFML_Template.vcxproj -> C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\Release\GUI_SFML_Template.exe
