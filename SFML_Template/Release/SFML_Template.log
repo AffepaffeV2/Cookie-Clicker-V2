@@ -1,17 +1,11 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (SFML_Template.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   GUI.cpp
-  main.cpp
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(40,108): error C2572: 'GUI::guicreator': redefinition of default argument: parameter 1
-  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(23,7):
-  see declaration of 'GUI::guicreator'
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(2,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'GUI.cpp')
   
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(40,146): error C2572: 'GUI::guicreator': redefinition of default argument: parameter 2
-  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(23,7):
-  see declaration of 'GUI::guicreator'
-  
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(46,39): error C3867: 'GUI::print_someting': non-standard syntax; use '&' to create a pointer to member
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(46,15): error C3889: call to object of class type 'tgui::SignalTyped<const tgui::String &>': no matching call operator found
-  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\TGUI-0.9\include\TGUI\Signal.hpp(308,22):
-  could be 'unsigned int tgui::SignalTyped<const tgui::String &>::operator ()(const Func &,const BoundArgs &...)'
-  
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\main.cpp(13,9): error C3861: 'guicreator': identifier not found
+  Generating code
+  0 of 224 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SFML_Template.vcxproj -> C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\Release\GUI_SFML_Template.exe

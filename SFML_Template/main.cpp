@@ -3,34 +3,20 @@
 #include <TGUI/TGUI.hpp>
 #include "GUI.h"
 
-
-
-//For a easy debugging will show if a file counld not be opened in the console.
-bool RunGUI(tgui::GuiBase& gui)
-{
-    try
-    {
-        guicreator("Click Me", gui);
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        std::cerr << "Failed to load TGUI widgets: " << e.what() << std::endl;
-        return false;
-    }
-}
-
-
-
-//main entry
 int main()
 {
     sf::RenderWindow window{ {800, 600}, "TGUI window with SFML" };
-    
-    //A Gui Object that works with Sfml window. 
+
+    // A Gui Object that works with Sfml window. 
     tgui::GuiSFML gui{ window };
-    
-    RunGUI(gui);
+
+    // Create GUI instance and initialize the GUI
+    GUI guiObject;
+    if (!guiObject.RunGUI(gui))
+    {
+        std::cerr << "Failed to initialize GUI." << std::endl;
+        return -1;
+    }
 
     while (window.isOpen())
     {
