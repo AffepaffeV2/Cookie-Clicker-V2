@@ -1,3 +1,4 @@
+#include <iostream>
 #include "GUI.h"
 
 GUI::GUI()
@@ -73,6 +74,13 @@ bool GUI::RunGUI(tgui::GuiBase& gui)
 void GUI::updategui()
 {
 
-
-
-}
+    sf::Time time = cpstimer.getElapsedTime();
+    
+    if (time.asSeconds() >= 1)
+    { 
+        std::cout << time.asMilliseconds() << std::endl; // Prints in console everytime it updates used for debugging
+        cookies += cps;
+        this->cookieLabel->setText("Cookies: " + std::to_string(cookies));
+        cpstimer.restart();
+        }
+ }

@@ -1,7 +1,9 @@
 #include<iostream>
 #include<string>
 #include <TGUI/TGUI.hpp>
-#include "GUI.h"
+#include "GUI.h"''
+
+
 
 int main()
 {
@@ -12,6 +14,8 @@ int main()
 
     // Create GUI instance and initialize the GUI
     GUI guiObject;
+
+
     if (!guiObject.RunGUI(gui))
     {
         std::cerr << "Failed to initialize GUI." << std::endl;
@@ -31,6 +35,7 @@ int main()
 
         window.clear();
         gui.draw();
+        guiObject.updategui();
         window.display();
     }
 }

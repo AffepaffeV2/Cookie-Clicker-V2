@@ -1,5 +1,5 @@
 #include<iostream>
-#include<string>§
+#include<string>
 #include <TGUI/TGUI.hpp>
 #pragma once
 
@@ -11,6 +11,9 @@ public:
 
     // Deconstructor
     ~GUI();
+
+    //Holds a refrance to My label
+    tgui::Label::Ptr cookieLabel;
 
     // Public method to initialize GUI
     bool RunGUI(tgui::GuiBase& gui);
@@ -25,10 +28,14 @@ private:
  
     void print_someting(const std::string& text);
 
+    sf::Clock cpstimer;
+
     int cookies = 0;
 
     int cpc = 1;
 
-    tgui::Label::Ptr cookieLabel;
+    int cps = 1;
+
+   
 
 };
