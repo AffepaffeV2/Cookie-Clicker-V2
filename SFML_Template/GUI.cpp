@@ -61,6 +61,7 @@ bool GUI::RunGUI(tgui::GuiBase& gui)
     {
         clicker(gui, "Click Me", "Button clicked!", "50%, 16.67%", "25%, 70%");
         staticguicreator(gui,"Cookies: 0", "75%", "25%", "0%", "0%");
+        
         return true;
     }
     catch (const tgui::Exception& e)

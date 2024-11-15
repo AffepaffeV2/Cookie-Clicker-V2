@@ -30,12 +30,13 @@ private:
 
     sf::Clock cpstimer;
 
+    // Main Components
+
     int cookies = 0;
 
     int cpc = 1;
 
     int cps = 1;
-
    
 
 };

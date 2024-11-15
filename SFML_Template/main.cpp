@@ -1,13 +1,14 @@
 #include<iostream>
 #include<string>
 #include <TGUI/TGUI.hpp>
-#include "GUI.h"''
+#include "GUI.h"
+#include "Upgrades.h"
 
 
 
 int main()
 {
-    sf::RenderWindow window{ {800, 600}, "TGUI window with SFML" };
+    sf::RenderWindow window{ {1920, 1080}, "TGUI window with SFML" };
 
     // A Gui Object that works with Sfml window. 
     tgui::GuiSFML gui{ window };

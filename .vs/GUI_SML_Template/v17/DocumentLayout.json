@@ -11,8 +11,16 @@
       "RelativeMoniker": "D:0:0:{DAF76062-8FAC-4164-990D-01981FC6ADA7}|SFML_Template\\SFML_Template.vcxproj|solutionrelative:SFML_Template\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DAF76062-8FAC-4164-990D-01981FC6ADA7}|SFML_Template\\SFML_Template.vcxproj|C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\Upgrades.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DAF76062-8FAC-4164-990D-01981FC6ADA7}|SFML_Template\\SFML_Template.vcxproj|solutionrelative:SFML_Template\\Upgrades.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DAF76062-8FAC-4164-990D-01981FC6ADA7}|SFML_Template\\SFML_Template.vcxproj|C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DAF76062-8FAC-4164-990D-01981FC6ADA7}|SFML_Template\\SFML_Template.vcxproj|solutionrelative:SFML_Template\\GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAF76062-8FAC-4164-990D-01981FC6ADA7}|SFML_Template\\SFML_Template.vcxproj|C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\Upgrades.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DAF76062-8FAC-4164-990D-01981FC6ADA7}|SFML_Template\\SFML_Template.vcxproj|solutionrelative:SFML_Template\\Upgrades.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,20 +30,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GUI.h",
               "DocumentMoniker": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\GUI.h",
               "RelativeDocumentMoniker": "SFML_Template\\GUI.h",
               "ToolTip": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\GUI.h",
               "RelativeToolTip": "SFML_Template\\GUI.h",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAYwBQAAAATAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAIwCYAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-06T07:50:49.378Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Upgrades.cpp",
+              "DocumentMoniker": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\Upgrades.cpp",
+              "RelativeDocumentMoniker": "SFML_Template\\Upgrades.cpp",
+              "ToolTip": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\Upgrades.cpp",
+              "RelativeToolTip": "SFML_Template\\Upgrades.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-15T07:01:23.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Upgrades.h",
+              "DocumentMoniker": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\Upgrades.h",
+              "RelativeDocumentMoniker": "SFML_Template\\Upgrades.h",
+              "ToolTip": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\Upgrades.h",
+              "RelativeToolTip": "SFML_Template\\Upgrades.h",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAgwBIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-15T07:01:13.11Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -45,7 +80,7 @@
               "RelativeDocumentMoniker": "SFML_Template\\GUI.cpp",
               "ToolTip": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\GUI.cpp",
               "RelativeToolTip": "SFML_Template\\GUI.cpp",
-              "ViewState": "AQIAADoAAAAAAAAAAAAQwD8AAAAUAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAAAQwDIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-06T07:50:57.668Z",
               "EditorCaption": ""
@@ -58,9 +93,10 @@
               "RelativeDocumentMoniker": "SFML_Template\\main.cpp",
               "ToolTip": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\main.cpp",
               "RelativeToolTip": "SFML_Template\\main.cpp",
-              "ViewState": "AQIAABoAAAAAAAAAAAAgwCkAAAAAAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAzwBYAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-07T09:35:17.86Z"
+              "WhenOpened": "2024-11-07T09:35:17.86Z",
+              "EditorCaption": ""
             }
           ]
         }
