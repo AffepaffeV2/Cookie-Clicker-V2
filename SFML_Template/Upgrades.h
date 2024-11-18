@@ -18,14 +18,14 @@ private:
 
 	//Building List
 
-	int cursor = 0; // CPC Upgrade
-	int grandma_count = 0; // CPS Upgrade
-	int farm = 0; // CPS Upgrade
-	int mine = 0; // CPS Upgrade
-	int factory = 0; // CPS Upgrade
-	int bank = 0; // CPS Upgrade
-	int temple = 0; // CPS Upgrade
-	int wizard_tower = 0; // CPS Upgrade
+	int Cursor = 0; // CPC Upgrade
+	int Grandma_count = 0; // CPS Upgrade
+	int Farm = 0; // CPS Upgrade
+	int Mine = 0; // CPS Upgrade
+	int Factory = 0; // CPS Upgrade
+	int Bank = 0; // CPS Upgrade
+	int Temple = 0; // CPS Upgrade
+	int Wizard_tower = 0; // CPS Upgrade
 	int shipment = 0; // CPS Upgrade
 	int alchemy_lab = 0; // CPS Upgrade
 	int portal = 0; // CPS Upgrade
