@@ -13,7 +13,7 @@ GUI::~GUI()
 
 void GUI::print_someting(const std::string& text)
 {
-    std::cout << text;
+    std::cout << text << std::endl;
 }
 
 
@@ -48,77 +48,6 @@ void GUI::clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::s
 
     void GUI::upgradeclicker(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, UpgradeType upgradetext)
     {
-      
-        switch (upgradetext)
-        {
-        case UpgradeType::Cursor:
-            upgradePrice = calculateUpgradePrice(15, cursor);
-            break;
-
-        case UpgradeType::Grandma:
-            upgradePrice = calculateUpgradePrice(100, grandma_count);
-            break;
-
-        case UpgradeType::Farm:
-            upgradePrice = calculateUpgradePrice(1100, farm);
-            break;
-
-        case UpgradeType::Mine:
-            upgradePrice = calculateUpgradePrice(12000, mine);
-            break;
-
-        case UpgradeType::Factory:
-            upgradePrice = calculateUpgradePrice(13, factory);
-            break;
-
-        case UpgradeType::Bank:
-            upgradePrice = calculateUpgradePrice(140, bank);
-            break;
-
-        case UpgradeType::Temple:
-            upgradePrice = calculateUpgradePrice(200, temple);
-            break;
-
-        case UpgradeType::WizardTower:
-            upgradePrice = calculateUpgradePrice(33, wizard_tower);
-            break;
-
-        case UpgradeType::Shipment:
-            upgradePrice = calculateUpgradePrice(41, shipment);
-            break;
-
-        case UpgradeType::AlchemyLab:
-            upgradePrice = calculateUpgradePrice(750, alchemy_lab);
-            break;
-
-        case UpgradeType::Portal:
-            upgradePrice = calculateUpgradePrice(10, portal);
-            break;
-
-        case UpgradeType::TimeMachine:
-            upgradePrice = calculateUpgradePrice(140, time_machine);
-            break;
-
-        case UpgradeType::AntimatterCondenser:
-            upgradePrice = calculateUpgradePrice(170, antimatter_condenser);
-            break;
-
-        case UpgradeType::Prism:
-            upgradePrice = calculateUpgradePrice(210, prism);
-            break;
-
-        case UpgradeType::Chancemaker:
-            upgradePrice = calculateUpgradePrice(2600, chancemaker);
-            break;
-
-        case UpgradeType::FractalEngine:
-            upgradePrice = calculateUpgradePrice(3100, fractal_engine);
-            break;
-
-        case UpgradeType::Idleverse:
-            upgradePrice = calculateUpgradePrice(710000, idleverse);
-            break;
-        }
        
         auto button = tgui::Button::create(ButtonText);
 
@@ -134,7 +63,79 @@ void GUI::clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::s
         button->onPress([this, PrintText, upgradetext]()
             {
 
-                if (cookies >= 0) // Check if the player can afford the upgrade
+                switch (upgradetext)
+                {
+                case UpgradeType::Cursor:
+                    upgradePrice = calculateUpgradePrice(1.5, cursor);
+                    break;
+
+                case UpgradeType::Grandma:
+                    upgradePrice = calculateUpgradePrice(10, grandma_count);
+                    break;
+
+                case UpgradeType::Farm:
+                    upgradePrice = calculateUpgradePrice(110, farm);
+                    break;
+
+                case UpgradeType::Mine:
+                    upgradePrice = calculateUpgradePrice(1200, mine);
+                    break;
+
+                case UpgradeType::Factory:
+                    upgradePrice = calculateUpgradePrice(13000, factory);
+                    break;
+
+                case UpgradeType::Bank:
+                    upgradePrice = calculateUpgradePrice(140000, bank);
+                    break;
+
+                case UpgradeType::Temple:
+                    upgradePrice = calculateUpgradePrice(2000000, temple);
+                    break;
+
+                case UpgradeType::WizardTower:
+                    upgradePrice = calculateUpgradePrice(33000000, wizard_tower);
+                    break;
+
+                case UpgradeType::Shipment:
+                    upgradePrice = calculateUpgradePrice(510000000, shipment);
+                    break;
+
+                case UpgradeType::AlchemyLab:
+                    upgradePrice = calculateUpgradePrice(7500000000, alchemy_lab);
+                    break;
+
+                case UpgradeType::Portal:
+                    upgradePrice = calculateUpgradePrice(100000000000, portal);
+                    break;
+
+                case UpgradeType::TimeMachine:
+                    upgradePrice = calculateUpgradePrice(1400000000000, time_machine);
+                    break;
+
+                case UpgradeType::AntimatterCondenser:
+                    upgradePrice = calculateUpgradePrice(17000000000000, antimatter_condenser);
+                    break;
+
+                case UpgradeType::Prism:
+                    upgradePrice = calculateUpgradePrice(210000000000000, prism);
+                    break;
+
+                case UpgradeType::Chancemaker:
+                    upgradePrice = calculateUpgradePrice(2600000000000000, chancemaker);
+                    break;
+
+                case UpgradeType::FractalEngine:
+                    upgradePrice = calculateUpgradePrice(31000000000000000, fractal_engine);
+                    break;
+
+                case UpgradeType::Idleverse:
+                    upgradePrice = calculateUpgradePrice(7100000000000000000, idleverse);
+                    break;
+                }
+
+
+                if (cookies >= upgradePrice) // Check if the player can afford the upgrade
                 {
                     std::cout << upgradePrice << std::endl;
                     cookies -= upgradePrice;  // Deduct the cost from the cookie count wallah =)
@@ -144,54 +145,88 @@ void GUI::clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::s
                     {
                     case UpgradeType::Cursor:
                         cursor++;
+                        cps += cursor*0.01;
+                       
                         break;
                     case UpgradeType::Grandma:
                         grandma_count++;
+                        cps += grandma_count * 0.1;
+                     
                         break;
                     case UpgradeType::Farm:
                         farm++;
+                        cps += farm * 0.8;
+                        
                         break;
                     case UpgradeType::Mine:
                         mine++;
+                        cps += mine * 4.7;
+                        
                         break;
                     case UpgradeType::Factory:
                         factory++;
+                        cps += factory * 26;
+                        
                         break;
                     case UpgradeType::Bank:
                         bank++;
+                        cps += bank * 140;
+
                         break;
                     case UpgradeType::Temple:
                         temple++;
+                        cps += temple * 780;
+
                         break;
                     case UpgradeType::WizardTower:
                         wizard_tower++;
+                        cps += wizard_tower * 4400;
+
                         break;
                     case UpgradeType::Shipment:
                         shipment++;
+                        cps += shipment * 26000;
+
                         break;
                     case UpgradeType::AlchemyLab:
                         alchemy_lab++;
+                        cps += alchemy_lab * 160000;
+
                         break;
                     case UpgradeType::Portal:
                         portal++;
+                        cps += portal * 1000000;
+
                         break;
                     case UpgradeType::TimeMachine:
                         time_machine++;
+                        cps += time_machine * 6500000;
+
                         break;
                     case UpgradeType::AntimatterCondenser:
                         antimatter_condenser++;
+                        cps += antimatter_condenser * 43000000;
+
                         break;
                     case UpgradeType::Prism:
                         prism++;
+                        cps += prism * 290000000;
+
                         break;
                     case UpgradeType::Chancemaker:
                         chancemaker++;
+                        cps += chancemaker * 2100000000;
+
                         break;
                     case UpgradeType::FractalEngine:
                         fractal_engine++;
+                        cps += fractal_engine * 15000000000;
+
                         break;
                     case UpgradeType::Idleverse:
                         idleverse++;
+                        cps += idleverse * 100000000000;
+
                         break;
                     }
                     print_someting(PrintText);  // Optional: Print a message for debugging
@@ -205,11 +240,11 @@ void GUI::clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::s
 }
 
 // Used double instead of float cause double precision is needed for the formula to work better, might cost a bit performance wise but i have big boi computer
-double GUI::calculateUpgradePrice(int baseCost, int currentCount)
+double GUI::calculateUpgradePrice(long long baseCost, int currentCount)
 {
     // Took the upgrade formula straight from cookie clicker wiki thats why free count is there =)
-    //std::cout << "Price: " << upgradePrice << std::endl;
-    //std::cout << "Cookies before: " << cookies << std::endl;
+    std::cout << "Price: " << upgradePrice << std::endl;
+    std::cout << "Cookies before: " << cookies << std::endl;
     std::cout << baseCost << std::endl;
     return upgradePrice = baseCost * pow(1.15, currentCount);
 }
@@ -225,6 +260,18 @@ void GUI::staticguicreator(tgui::GuiBase& gui, const std::string ButtonText, tgu
 
     gui.add(cookieLabel);
 }
+
+void GUI::cps_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight,tgui::Layout posX, tgui::Layout posY) 
+{
+    cpslabel = tgui::Label::create(displaytext);
+    cpslabel->setSize({ sizeWidth, sizeHeight });
+    cpslabel->setPosition({ posX, posY });
+    cpslabel->getRenderer()->setTextColor(tgui::Color(255, 255, 255));
+    cpslabel->setTextSize(25);
+
+    gui.add(cpslabel);
+}
+
 // Public function to initialize the GUI
 bool GUI::RunGUI(tgui::GuiBase& gui)
 {
@@ -232,6 +279,7 @@ bool GUI::RunGUI(tgui::GuiBase& gui)
     {
         clicker(gui, "Click Me", "Button clicked!", "50%, 16.67%", "25%, 70%");
         staticguicreator(gui,"Cookies: 0", "75%", "25%", "0%", "0%");
+        cps_label(gui, "Cookies Per Second: 0", "75%", "25%", "0%", "5%");
 
 
         // Upgrade buttons will be placed on the right side, starting from 10% downwards
@@ -308,9 +356,10 @@ void GUI::updategui()
     
     if (time.asSeconds() >= 1)
     { 
-        std::cout << time.asMilliseconds() << std::endl; // Prints in console everytime it updates used for debugging
+        std::cout << cps << std::endl; // Prints the CPS value
         cookies += cps;
         this->cookieLabel->setText("Cookies: " + std::to_string(cookies));
+        this->cpslabel->setText("Cookies Per Second: " + std::to_string(cps));
         cpstimer.restart();
         }
  }

@@ -1,9 +1,9 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (SFML_Template.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   GUI.cpp
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(140,32): warning C4244: '-=': conversion from 'double' to '__int64', possible loss of data
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(69,58): warning C4244: 'argument': conversion from 'double' to '__int64', possible loss of data
   Generating code
-  6 of 334 functions ( 1.8%) were compiled, the rest were copied from previous compilation.
+  0 of 324 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SFML_Template.vcxproj -> C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\Release\GUI_SFML_Template.exe

@@ -15,6 +15,8 @@ public:
     //Holds a refrance to My label
     tgui::Label::Ptr cookieLabel;
 
+    tgui::Label::Ptr cpslabel;
+
     // Public method to initialize GUI
     bool RunGUI(tgui::GuiBase& gui);
 
@@ -51,11 +53,13 @@ private:
 
     void print_someting(const std::string& text);
 
+    void cps_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY);
+
     int baseCost = 1;  // Example base cost (you can change this for each building upgrade =) )
 
     double upgradePrice = 0;
 
-    double calculateUpgradePrice(int baseCost, int currentCount);
+    double calculateUpgradePrice(long long baseCost, int currentCount);
 
     // Upgrade counts
 
@@ -82,10 +86,10 @@ private:
     // Main Components
 
     // Wanted this int to be able to store a larger number than 2.1 billion so i used LONG LONG cause apparently thats a thing that stores larger numbers cool wallah
-    long long cookies = 0;
+    double cookies = 0;
 
-    long long cpc = 1;
+    double cpc = 1;
 
-    long long cps = 1;
+    double cps = 0;
 
 };
