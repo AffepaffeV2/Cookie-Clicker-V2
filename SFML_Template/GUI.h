@@ -17,6 +17,8 @@ public:
 
     tgui::Label::Ptr cpslabel;
 
+    tgui::Label::Ptr upgradeslabel;
+
     // Public method to initialize GUI
     bool RunGUI(tgui::GuiBase& gui);
 
@@ -54,6 +56,8 @@ private:
     void print_someting(const std::string& text);
 
     void cps_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY);
+
+    void upgrades_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY);
 
     int baseCost = 1;  // Example base cost (you can change this for each building upgrade =) )
 

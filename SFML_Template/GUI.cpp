@@ -267,10 +267,12 @@ void GUI::cps_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout si
     cpslabel->setSize({ sizeWidth, sizeHeight });
     cpslabel->setPosition({ posX, posY });
     cpslabel->getRenderer()->setTextColor(tgui::Color(255, 255, 255));
-    cpslabel->setTextSize(25);
+    cpslabel->setTextSize(20);
 
     gui.add(cpslabel);
 }
+
+
 
 // Public function to initialize the GUI
 bool GUI::RunGUI(tgui::GuiBase& gui)
@@ -278,11 +280,10 @@ bool GUI::RunGUI(tgui::GuiBase& gui)
     try
     {
         clicker(gui, "Click Me", "Button clicked!", "50%, 16.67%", "25%, 70%");
-        staticguicreator(gui,"Cookies: 0", "75%", "25%", "0%", "0%");
         cps_label(gui, "Cookies Per Second: 0", "75%", "25%", "0%", "5%");
+        staticguicreator(gui,"Cookies: 0", "75%", "25%", "0%", "0%");
 
-
-        // Upgrade buttons will be placed on the right side, starting from 10% downwards
+        // Upgrade buttons will be placed on the right side, starting from 0% downwards
         float startingPosY = 0.0f;  // Starting position for the first upgrade
         float spacing = 5.0f;  // Space between buttons in percentage
 

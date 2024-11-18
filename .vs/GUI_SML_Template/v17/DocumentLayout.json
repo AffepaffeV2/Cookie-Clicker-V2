@@ -32,11 +32,10 @@
               "RelativeDocumentMoniker": "SFML_Template\\GUI.h",
               "ToolTip": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\GUI.h",
               "RelativeToolTip": "SFML_Template\\GUI.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwC8AAAArAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAYwDsAAACcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-06T07:50:49.378Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -46,7 +45,7 @@
               "RelativeDocumentMoniker": "SFML_Template\\GUI.cpp",
               "ToolTip": "C:\\Users\\te22ah9\\OneDrive - Curt Nicolin Gymnasiet AB\\Programmering\\Github Repositories\\Nytt Projekt (Mall)\\SFML_Template\\GUI.cpp",
               "RelativeToolTip": "SFML_Template\\GUI.cpp",
-              "ViewState": "AQIAAFoBAAAAAAAAAAAYwGUBAAAGAAAA",
+              "ViewState": "AQIAAD0BAAAAAAAAAAAQwA0BAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-06T07:50:57.668Z",
               "EditorCaption": ""
@@ -61,8 +60,7 @@
               "RelativeToolTip": "SFML_Template\\main.cpp",
               "ViewState": "AQIAABkAAAAAAAAAAAAkwBMAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-07T09:35:17.86Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T09:35:17.86Z"
             }
           ]
         }
