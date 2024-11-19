@@ -2,6 +2,7 @@
 #include "GUI.h"
 #include "cmath"
 
+
 GUI::GUI()
 {
 }
@@ -17,8 +18,7 @@ void GUI::print_someting(const std::string& text)
 }
 
 
-
-void GUI::clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
+void GUI::clicker(tgui::GuiBase& gui,const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
 {
 
     auto button = tgui::Button::create(ButtonText);
@@ -29,7 +29,7 @@ void GUI::clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::s
     // Set the position of the label
     button->setPosition({ posX, posY });
 
-    gui.add(button);
+    gui.add(button);     
 
     // Button press event: Update cookie count and refresh label
     button->onPress([this, PrintText]() {
@@ -39,8 +39,33 @@ void GUI::clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::s
         print_someting(PrintText);
 
         // Update the label text with the current cookie count
-        if (cookieLabel) {
-            cookieLabel->setText("Cookies: " + std::to_string(cookies));
+        if (cookies <= 1000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies));
+        }
+        else if (cookies >= 1000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000) + " K");
+        }
+        else if (cookies >= 1000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000) + " M");
+        }
+        else if (cookies >= 1000000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000) + " B");
+        }
+        else if (cookies >= 1000000000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000) + " T");
+        }
+        else if (cookies >= 1000000000000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000000) + " QA");
+        }
+        else if (cookies >= 1000000000000000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000000000) + " QN");
         }
         });
 }
@@ -243,8 +268,8 @@ void GUI::clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::s
 double GUI::calculateUpgradePrice(long long baseCost, int currentCount)
 {
     // Took the upgrade formula straight from cookie clicker wiki thats why free count is there =)
-    std::cout << "Price: " << upgradePrice << std::endl;
-    std::cout << "Cookies before: " << cookies << std::endl;
+    std::cout << "Price: " << upgradePrice << std::endl; // Prints the upgrade price for debugging
+    std::cout << "Cookies before: " << cookies << std::endl; // Prints how many cookies you had before purchase for debugging
     std::cout << baseCost << std::endl;
     return upgradePrice = baseCost * pow(1.15, currentCount);
 }
@@ -280,8 +305,8 @@ bool GUI::RunGUI(tgui::GuiBase& gui)
     try
     {
         clicker(gui, "Click Me", "Button clicked!", "50%, 16.67%", "25%, 70%");
-        cps_label(gui, "Cookies Per Second: 0", "75%", "25%", "0%", "5%");
-        staticguicreator(gui,"Cookies: 0", "75%", "25%", "0%", "0%");
+        cps_label(gui, "Cookies Per Second: 0", "75%", "25%", "40%", "5%");
+        staticguicreator(gui,"Cookies: 0", "75%", "25%", "40%", "0%");
 
         // Upgrade buttons will be placed on the right side, starting from 0% downwards
         float startingPosY = 0.0f;  // Starting position for the first upgrade
@@ -357,10 +382,37 @@ void GUI::updategui()
     
     if (time.asSeconds() >= 1)
     { 
-        std::cout << cps << std::endl; // Prints the CPS value
+        std::cout << cps << std::endl; // Prints the CPS value for debugging
         cookies += cps;
-        this->cookieLabel->setText("Cookies: " + std::to_string(cookies));
         this->cpslabel->setText("Cookies Per Second: " + std::to_string(cps));
+        if (cookies <= 1000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies));
+        }
+        else if (cookies >= 1000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000) + " K");
+        }
+        else if (cookies >= 1000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000) + " M");
+        }
+        else if (cookies >= 1000000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000) + " B");
+        }
+        else if (cookies >= 1000000000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000) + " T");
+        }
+        else if (cookies >= 1000000000000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000000) + " QA");
+        }
+        else if (cookies >= 1000000000000000000)
+        {
+            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 100000000000000000) + " QN");
+        }
         cpstimer.restart();
         }
  }
