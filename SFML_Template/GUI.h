@@ -40,7 +40,18 @@ private:
         Idleverse, // CPS Upgrade
     };
 
-    void clicker(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth = "50%", tgui::Layout sizeHeight = "16.67%", tgui::Layout posX = "25%", tgui::Layout posY = "70%");
+    enum class ClickerupgradeType
+    {
+        Clicker2, // CPC Upgrade had to name it clicker2 due to clicker being another function with the type void
+        GoldenClicker, // CPC Upgrade
+        PlatinunClicker, // CPC Upgrade
+        EmeraldClicker, // CPC Upgrade
+        DiamondClicker, // CPC Upgrade
+        MasterClicker, // CPC Upgrade
+        ChallengerClicker, // CPC Upgrade
+    };
+
+    void clicker_button(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth = "", tgui::Layout sizeHeight = "", tgui::Layout posX = "35%", tgui::Layout posY = "35%");
         
     tgui::Label::Ptr cookieLabel;
 
@@ -51,7 +62,9 @@ private:
 
         void upgradeclicker(tgui::GuiBase & gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, UpgradeType upgradetext);
 
-        void staticguicreator(tgui::GuiBase & gui, const std::string ButtonText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY);
+        void clickerupgrades(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, ClickerupgradeType upgradetext);
+
+        void cookie_label(tgui::GuiBase & gui, const std::string ButtonText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY);
 
         void print_someting(const std::string & text);
 
@@ -83,15 +96,24 @@ private:
         int fractal_engine = 0; // CPS Upgrade
         int idleverse = 0; // CPS Upgrade
 
+        // Clicker Upgrade Counts
+        int clicker2 = 0;
+        int goldenclicker = 0;
+        int platinumclicker = 0;
+        int emeraldclicker = 0;
+        int diamondclicker = 0;
+        int masterclicker = 0;
+        int challengerclicker = 0;
+
         sf::Clock cpstimer;
 
         // Main Components
 
         // Wanted this int to be able to store a larger number than 2.1 billion so i used LONG LONG cause apparently thats a thing that stores larger numbers cool wallah
-        double cookies = 0;
+        float cookies = 0;
 
-        double cpc = 1;
+        int cpc = 1;
 
-        double cps = 0;
+        float cps = 0;
 
     };

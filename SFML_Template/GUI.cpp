@@ -1,6 +1,6 @@
 #include <iostream>
 #include "GUI.h"
-#include "cmath"
+#include "cmath" // included because the use of the pow function
 
 
 GUI::GUI()
@@ -11,23 +11,50 @@ GUI::~GUI()
 {
 }
 
+// Function to calculate the upgrades prices, used double instead of float cause double precision is needed for the formula to work better, might cost a bit performance wise but i have big boi computer
+double GUI::calculateUpgradePrice(long long baseCost, int currentCount)
+{
+    // Took the upgrade formula straight from cookie clicker wiki thats why free count is there =)
+    std::cout << "Price: " << upgradePrice << std::endl; // Prints the upgrade price for debugging
+    std::cout << "Cookies before: " << cookies << std::endl; // Prints how many cookies you had before purchase for debugging
+    std::cout << baseCost << std::endl;
+    return upgradePrice = baseCost * pow(1.15, currentCount);
+}
 
+//Function to handle printing to console, used for all debugging
 void GUI::print_someting(const std::string& text)
 {
     std::cout << text << std::endl;
 }
 
-
-void GUI::clicker(tgui::GuiBase& gui,const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
+// Function to handle the clicker button
+void GUI::clicker_button(tgui::GuiBase& gui,const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
 {
 
     auto button = tgui::Button::create(ButtonText);
 
+    sf::Texture clickerbutton;
+   
+
+    // Loads the texture from the file background.png and checks it it fails to load
+    if (!clickerbutton.loadFromFile("cookie2.png"))
+    {
+        std::cerr << "ERORR, could not load texture";
+    }
+
+    sf::Sprite s(clickerbutton);
+
+    auto buttonRenderer = button->getRenderer(); 
+    buttonRenderer->setTexture(clickerbutton);
+    buttonRenderer->setBorders(0);
+
+    sf::Vector2u textureSize = clickerbutton.getSize(); // Get texture width and height
+
     // Set the size of the label
-    button->setSize({ sizeWidth, sizeHeight });
+    button->setSize({tgui::Layout(textureSize.x), tgui::Layout(textureSize.y)});
 
     // Set the position of the label
-    button->setPosition({ posX, posY });
+    button->setPosition({tgui::Layout(posX), tgui::Layout(posY)});
 
     gui.add(button);     
 
@@ -39,39 +66,126 @@ void GUI::clicker(tgui::GuiBase& gui,const std::string ButtonText, const std::st
         print_someting(PrintText);
 
         // Update the label text with the current cookie count
-        if (cookies <= 1000)
-        {
+        if (cookies < 1000) {
+
+            // No formatting needed for values below 1000
             this->cookieLabel->setText("Cookies: " + std::to_string(cookies));
         }
-        else if (cookies >= 1000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000) + " K");
-        }
-        else if (cookies >= 1000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000) + " M");
-        }
-        else if (cookies >= 1000000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000) + " B");
-        }
-        else if (cookies >= 1000000000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000) + " T");
-        }
-        else if (cookies >= 1000000000000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000000) + " QA");
-        }
-        else if (cookies >= 1000000000000000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000000000) + " QN");
+        else {
+            // For values >= 1000, find the appropriate unit
+            std::vector<std::pair<long long, std::string>> units = {
+                {1000000000000000000, " QN"},
+                {1000000000000000, " QA"},
+                {1000000000000, " T"},
+                {1000000000, " B"},
+                {1000000, " M"},
+                {1000, " K"}
+            };
+
+            for (const auto& unit : units) {
+                if (cookies >= unit.first) {
+                    this->cookieLabel->setText("Cookies: " + std::to_string(cookies / unit.first) + unit.second);
+                    break;
+                }
+            }
         }
         });
 }
 
+//Function to handle all the CPC upgrades
+void GUI::clickerupgrades(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, ClickerupgradeType upgradetext)
+{
 
-    void GUI::upgradeclicker(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, UpgradeType upgradetext)
+    auto button = tgui::Button::create(ButtonText);
+
+    // Set the size of the label
+    button->setSize({ sizeWidth, sizeHeight });
+
+    // Set the position of the label
+    button->setPosition({ posX, posY });
+
+    gui.add(button);
+
+    // Button press event: Upgrade an upgrade depending on what case is used
+    button->onPress([this, PrintText, upgradetext]()
+        {
+
+            switch (upgradetext)
+            {
+            case ClickerupgradeType::Clicker2:
+                upgradePrice = calculateUpgradePrice(10, clicker2);
+                break;
+
+            case ClickerupgradeType::GoldenClicker:
+                upgradePrice = calculateUpgradePrice(250, goldenclicker);
+                break;
+
+            case ClickerupgradeType::PlatinunClicker:
+                upgradePrice = calculateUpgradePrice(6250, platinumclicker);
+                break;
+
+            case ClickerupgradeType::EmeraldClicker:
+                upgradePrice = calculateUpgradePrice(156250, emeraldclicker);
+                break;
+                
+            case ClickerupgradeType::DiamondClicker:
+                upgradePrice = calculateUpgradePrice(3906250, diamondclicker);
+                break;
+
+            case ClickerupgradeType::MasterClicker:
+                upgradePrice = calculateUpgradePrice(97656250, masterclicker);
+                break;
+            }
+
+
+            if (cookies >= upgradePrice) // Check if the player can afford the upgrade
+            {
+                std::cout << upgradePrice << std::endl;
+                cookies -= upgradePrice;  // Deduct the cost from the cookie count wallah =)
+
+                // Increment the corresponding upgrade counter based on clicker upgrade type
+                switch (upgradetext)
+                {
+                case ClickerupgradeType::Clicker2:
+                    clicker2 ++;
+                    cpc += clicker2;
+                    break;
+                case ClickerupgradeType::GoldenClicker:
+                    goldenclicker ++;
+                    cpc += goldenclicker + 1;
+
+                case ClickerupgradeType::PlatinunClicker:
+                    platinumclicker++;
+                    cpc += platinumclicker + 3;
+
+                case ClickerupgradeType::EmeraldClicker:
+                    emeraldclicker++;
+                    cpc += emeraldclicker + 7;
+
+                case ClickerupgradeType::DiamondClicker:
+                    diamondclicker++;
+                    cpc += diamondclicker + 15;
+
+                case ClickerupgradeType::MasterClicker:
+                    masterclicker++;
+                    cpc += masterclicker + 31;
+
+                case ClickerupgradeType::ChallengerClicker:
+                    challengerclicker++;
+                    cpc += challengerclicker + 63;
+                }
+                print_someting(PrintText);  // Optional: Print a message for debugging
+            }
+            else
+            {
+                std::cout << upgradePrice << std::endl;
+                print_someting("Cannot afford upgrade!");  // Optional: Print a message for debugging
+            }
+        });
+}
+
+//Function to handle all the building/CPS upgrades
+void GUI::upgradeclicker(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, UpgradeType upgradetext)
     {
        
         auto button = tgui::Button::create(ButtonText);
@@ -264,17 +378,8 @@ void GUI::clicker(tgui::GuiBase& gui,const std::string ButtonText, const std::st
             });
 }
 
-// Used double instead of float cause double precision is needed for the formula to work better, might cost a bit performance wise but i have big boi computer
-double GUI::calculateUpgradePrice(long long baseCost, int currentCount)
-{
-    // Took the upgrade formula straight from cookie clicker wiki thats why free count is there =)
-    std::cout << "Price: " << upgradePrice << std::endl; // Prints the upgrade price for debugging
-    std::cout << "Cookies before: " << cookies << std::endl; // Prints how many cookies you had before purchase for debugging
-    std::cout << baseCost << std::endl;
-    return upgradePrice = baseCost * pow(1.15, currentCount);
-}
-
-void GUI::staticguicreator(tgui::GuiBase& gui, const std::string ButtonText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
+//Function to handle the "Cookies" label
+void GUI::cookie_label(tgui::GuiBase& gui, const std::string ButtonText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
 {
     cookieLabel = tgui::Label::create(ButtonText);
 
@@ -286,6 +391,7 @@ void GUI::staticguicreator(tgui::GuiBase& gui, const std::string ButtonText, tgu
     gui.add(cookieLabel);
 }
 
+// Function to handle the "Cookies Per Second" label
 void GUI::cps_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight,tgui::Layout posX, tgui::Layout posY) 
 {
     cpslabel = tgui::Label::create(displaytext);
@@ -297,24 +403,48 @@ void GUI::cps_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout si
     gui.add(cpslabel);
 }
 
-
-
 // Public function to initialize the GUI
 bool GUI::RunGUI(tgui::GuiBase& gui)
 {
     try
     {
-        clicker(gui, "Click Me", "Button clicked!", "50%, 16.67%", "25%, 70%");
+        clicker_button(gui, "", "Button clicked!", "", "25%, 50%");
         cps_label(gui, "Cookies Per Second: 0", "75%", "25%", "40%", "5%");
-        staticguicreator(gui,"Cookies: 0", "75%", "25%", "40%", "0%");
+        cookie_label(gui,"Cookies: 0", "75%", "25%", "40%", "0%");
 
         // Upgrade buttons will be placed on the right side, starting from 0% downwards
         float startingPosY = 0.0f;  // Starting position for the first upgrade
         float spacing = 5.0f;  // Space between buttons in percentage
 
-        // Call the upgradeclicker for each upgrade type, adjusted vertically
+        float startingPosY2 = 0.0f;  // Starting position for the first cps upgrade
+        float spacing2 = 5.0f;  // Space between cps upgrade buttons in percentage
 
-        
+
+
+        // Calls the clickerupgrades, which are adjusted vertically
+        clickerupgrades(gui, "Clicker Upgrade", "Upgraded Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::Clicker2);
+        startingPosY2 += spacing2;
+
+        clickerupgrades(gui, "Golden Clicker Upgrade", "Upgraded Golden Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::GoldenClicker);
+        startingPosY2 += spacing2;
+
+        clickerupgrades(gui, "Platinum Clicker Upgrade", "Upgraded Platinum Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::PlatinunClicker);
+        startingPosY2 += spacing2;
+
+        clickerupgrades(gui, "Emerald Clicker Upgrade", "Upgraded Emerald Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::EmeraldClicker);
+        startingPosY2 += spacing2;
+
+        clickerupgrades(gui, "Diamond Clicker Upgrade", "Upgraded Diamond Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::DiamondClicker);
+        startingPosY2 += spacing2;
+
+        clickerupgrades(gui, "Master Clicker Upgrade", "Upgraded Master Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::MasterClicker);
+        startingPosY2 += spacing2;
+
+        clickerupgrades(gui, "Challenger Clicker Upgrade", "Upgraded Challenger Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::ChallengerClicker);
+        startingPosY2 += spacing2;
+
+
+        // Call the upgradeclicker for each upgrade type, adjusted vertically
         upgradeclicker(gui, "Cursor Upgrade", "Upgraded Cursor!", "20%", "5%", tgui::Layout{ "80%" }, tgui::Layout{ std::to_string(startingPosY) + "%" }, UpgradeType::Cursor);
         startingPosY += spacing;
 
@@ -384,34 +514,55 @@ void GUI::updategui()
     { 
         std::cout << cps << std::endl; // Prints the CPS value for debugging
         cookies += cps;
-        this->cpslabel->setText("Cookies Per Second: " + std::to_string(cps));
-        if (cookies <= 1000)
-        {
+
+        // Update the label text with the current cps count
+        if (cps < 1000) {
+
+            // No formatting needed for values below 1000
+            this->cpslabel->setText("Cookies Per Second: " + std::to_string(cps));
+        }
+        else {
+            // For values >= 1000, find the appropriate unit
+            std::vector<std::pair<long long, std::string>> units = {
+                {1000000000000000000, " QN"},
+                {1000000000000000, " QA"},
+                {1000000000000, " T"},
+                {1000000000, " B"},
+                {1000000, " M"},
+                {1000, " K"}
+            };
+
+            for (const auto& unit : units) {
+                if (cps >= unit.first) {
+                    this->cpslabel->setText("Cookies Per Second: " + std::to_string(cps / unit.first) + unit.second);
+                    break;
+                }
+            }
+        }
+
+        // Update the label text with the current cookie count
+        if (cookies < 1000) {
+
+            // No formatting needed for values below 1000
             this->cookieLabel->setText("Cookies: " + std::to_string(cookies));
         }
-        else if (cookies >= 1000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000) + " K");
-        }
-        else if (cookies >= 1000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000) + " M");
-        }
-        else if (cookies >= 1000000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000) + " B");
-        }
-        else if (cookies >= 1000000000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000) + " T");
-        }
-        else if (cookies >= 1000000000000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 1000000000000000) + " QA");
-        }
-        else if (cookies >= 1000000000000000000)
-        {
-            this->cookieLabel->setText("Cookies: " + std::to_string(cookies / 100000000000000000) + " QN");
+        else {
+            // For values >= 1000, find the appropriate unit
+            std::vector<std::pair<long long, std::string>> units = {
+                {1000000000000000000, " QN"},
+                {1000000000000000, " QA"},
+                {1000000000000, " T"},
+                {1000000000, " B"},
+                {1000000, " M"},
+                {1000, " K"}
+            };
+
+            for (const auto& unit : units) {
+                if (cookies >= unit.first) {
+                    this->cookieLabel->setText("Cookies: " + std::to_string(cookies / unit.first) + unit.second);
+                    break;
+                }
+            }
         }
         cpstimer.restart();
         }
