@@ -3,9 +3,6 @@
 #include <TGUI/TGUI.hpp>
 #include "GUI.h"
 #include "Upgrades.h"
-
-
-
 int main()
 {
 

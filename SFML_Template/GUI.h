@@ -51,7 +51,7 @@ private:
         ChallengerClicker, // CPC Upgrade
     };
 
-    void clicker_button(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth = "", tgui::Layout sizeHeight = "", tgui::Layout posX = "35%", tgui::Layout posY = "35%");
+    void clicker_button(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth = "", tgui::Layout sizeHeight = "", tgui::Layout posX = "30%", tgui::Layout posY = "35%");
         
     tgui::Label::Ptr cookieLabel;
 
@@ -75,6 +75,7 @@ private:
         double upgradePrice = 0;
 
         double calculateUpgradePrice(long long baseCost, int currentCount);
+        double calculateUpgradeDisplayPrice(long long baseCost, int currentCount);
 
         // Upgrade counts
 

@@ -1,12 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (SFML_Template.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  GUI.cpp
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(144,28): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(208,58): warning C4244: 'argument': conversion from 'double' to '__int64', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(280,32): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(287,38): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(292,46): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(297,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(302,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
   main.cpp
   Generating code
   0 of 428 functions ( 0.0%) were compiled, the rest were copied from previous compilation.

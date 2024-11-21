@@ -21,6 +21,13 @@ double GUI::calculateUpgradePrice(long long baseCost, int currentCount)
     return upgradePrice = baseCost * pow(1.15, currentCount);
 }
 
+double GUI::calculateUpgradeDisplayPrice(long long baseCost, int currentCount) 
+{
+    return upgradePrice = baseCost * pow(1.15, currentCount + 1);
+    std::string displayprice = std::to_string(upgradePrice);
+}
+
+
 //Function to handle printing to console, used for all debugging
 void GUI::print_someting(const std::string& text)
 {
@@ -98,8 +105,22 @@ void GUI::clickerupgrades(tgui::GuiBase& gui, const std::string ButtonText, cons
 
     auto button = tgui::Button::create(ButtonText);
 
+    sf::Texture upgradebutton;
+
+        if (!upgradebutton.loadFromFile("backgroundupgrade.png"))
+        {
+            std::cerr << "ERORR, could not load texture";
+        }
+
+    auto backgroundrenderer = button->getRenderer();
+    backgroundrenderer->setTexture(upgradebutton);
+    backgroundrenderer->setBorders(0);
+
+
+    sf::Vector2u textureSize = upgradebutton.getSize(); // Get texture width and height
+
     // Set the size of the label
-    button->setSize({ sizeWidth, sizeHeight });
+    button->setSize({ tgui::Layout(textureSize.x), tgui::Layout(textureSize.y) });
 
     // Set the position of the label
     button->setPosition({ posX, posY });
@@ -190,8 +211,23 @@ void GUI::upgradeclicker(tgui::GuiBase& gui, const std::string ButtonText, const
        
         auto button = tgui::Button::create(ButtonText);
 
+        sf::Texture upgrade2button;
+
+        if (!upgrade2button.loadFromFile("backgroundupgrade.png"))
+        {
+            std::cerr << "ERORR, could not load texture";
+        }
+
+        auto backgroundrenderer = button->getRenderer();
+        backgroundrenderer->setTexture(upgrade2button);
+        backgroundrenderer->setBorders(0);
+
+         
+
+        sf::Vector2u textureSize = upgrade2button.getSize(); // Get texture width and height
+
         // Set the size of the label
-        button->setSize({ sizeWidth, sizeHeight });
+        button->setSize({ tgui::Layout(textureSize.x), tgui::Layout(textureSize.y) });
 
         // Set the position of the label
         button->setPosition({ posX, posY });
@@ -422,7 +458,7 @@ bool GUI::RunGUI(tgui::GuiBase& gui)
 
 
         // Calls the clickerupgrades, which are adjusted vertically
-        clickerupgrades(gui, "Clicker Upgrade", "Upgraded Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::Clicker2);
+        clickerupgrades(gui, "Clicker Upgrade", "Upgraded Clicker", "20%", "5%", tgui::Layout{"0%"}, tgui::Layout{std::to_string(startingPosY2) + "%"}, ClickerupgradeType::Clicker2);
         startingPosY2 += spacing2;
 
         clickerupgrades(gui, "Golden Clicker Upgrade", "Upgraded Golden Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::GoldenClicker);
