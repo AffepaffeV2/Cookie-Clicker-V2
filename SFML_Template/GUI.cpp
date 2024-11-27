@@ -2,7 +2,6 @@
 #include "GUI.h"
 #include "cmath" // included because the use of the pow function
 
-
 GUI::GUI()
 {
 }
@@ -11,37 +10,57 @@ GUI::~GUI()
 {
 }
 
-// Function to calculate the upgrades prices, used double instead of float cause double precision is needed for the formula to work better, might cost a bit performance wise but i have big boi computer
-double GUI::calculateUpgradePrice(long long baseCost, int currentCount)
-{
-    // Took the upgrade formula straight from cookie clicker wiki thats why free count is there =)
-    std::cout << "Price: " << upgradePrice << std::endl; // Prints the upgrade price for debugging
-    std::cout << "Cookies before: " << cookies << std::endl; // Prints how many cookies you had before purchase for debugging
-    std::cout << baseCost << std::endl;
-    return upgradePrice = baseCost * pow(1.15, currentCount);
-}
-
-double GUI::calculateUpgradeDisplayPrice(long long baseCost, int currentCount) 
-{
-    return upgradePrice = baseCost * pow(1.15, currentCount + 1);
-    std::string displayprice = std::to_string(upgradePrice);
-}
-
-
 //Function to handle printing to console, used for all debugging
 void GUI::print_someting(const std::string& text)
 {
     std::cout << text << std::endl;
 }
 
+// Function to handle the "Cookies Per Second" label
+void GUI::cps_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
+{
+    cpslabel = tgui::Label::create(displaytext);
+    cpslabel->setSize({ sizeWidth, sizeHeight });
+    cpslabel->setPosition({ posX, posY });
+    cpslabel->getRenderer()->setTextColor(tgui::Color(255, 255, 255));
+    cpslabel->setTextSize(20);
+
+    gui.add(cpslabel);
+}
+
+// Function to handle the "Cookies Per Cookies" label
+void GUI::cpc_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
+{
+    cpclabel = tgui::Label::create(displaytext);
+    cpclabel->setSize({ sizeWidth, sizeHeight });
+    cpclabel->setPosition({ posX, posY });
+    cpclabel->getRenderer()->setTextColor(tgui::Color(255, 255, 255));
+    cpclabel->setTextSize(20);
+
+    gui.add(cpclabel);
+}
+
+//Function to handle the "Cookies" label
+void GUI::cookie_label(tgui::GuiBase& gui, const std::string ButtonText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
+{
+    cookieLabel = tgui::Label::create(ButtonText);
+
+    cookieLabel->setSize({ sizeWidth, sizeHeight });
+    cookieLabel->setPosition({ posX, posY });
+    cookieLabel->getRenderer()->setTextColor(tgui::Color(255, 255, 255));
+    cookieLabel->setTextSize(25);
+
+    gui.add(cookieLabel);
+}
+
 // Function to handle the clicker button
-void GUI::clicker_button(tgui::GuiBase& gui,const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
+void GUI::clicker_button(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
 {
 
     auto button = tgui::Button::create(ButtonText);
 
     sf::Texture clickerbutton;
-   
+
 
     // Loads the texture from the file background.png and checks it it fails to load
     if (!clickerbutton.loadFromFile("cookie2.png"))
@@ -51,19 +70,19 @@ void GUI::clicker_button(tgui::GuiBase& gui,const std::string ButtonText, const 
 
     sf::Sprite s(clickerbutton);
 
-    auto buttonRenderer = button->getRenderer(); 
+    auto buttonRenderer = button->getRenderer();
     buttonRenderer->setTexture(clickerbutton);
     buttonRenderer->setBorders(0);
 
     sf::Vector2u textureSize = clickerbutton.getSize(); // Get texture width and height
 
     // Set the size of the label
-    button->setSize({tgui::Layout(textureSize.x), tgui::Layout(textureSize.y)});
+    button->setSize({ tgui::Layout(textureSize.x), tgui::Layout(textureSize.y) });
 
     // Set the position of the label
-    button->setPosition({tgui::Layout(posX), tgui::Layout(posY)});
+    button->setPosition({ tgui::Layout(posX), tgui::Layout(posY) });
 
-    gui.add(button);     
+    gui.add(button);
 
     // Button press event: Update cookie count and refresh label
     button->onPress([this, PrintText]() {
@@ -99,12 +118,22 @@ void GUI::clicker_button(tgui::GuiBase& gui,const std::string ButtonText, const 
         });
 }
 
+// Function to calculate the upgrades prices, used double instead of float cause double precision is needed for the formula to work better, might cost a bit performance wise but i have big boi computer
+double GUI::calculateUpgradePrice(long long baseCost, int currentCount)
+{
+    // Took the upgrade formula straight from cookie clicker wiki thats why free count is there =)
+    std::cout << "Price Before: " << upgradePrice << std::endl; // Prints the upgrade price for debugging
+    std::cout << "Cookies before: " << cookies << std::endl; // Prints how many cookies you had before purchase for debugging
+    return upgradePrice = baseCost * pow(1.15, currentCount);
+ 
+}
+
 //Function to handle all the CPC upgrades
 void GUI::clickerupgrades(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, ClickerupgradeType upgradetext)
 {
 
     auto button = tgui::Button::create(ButtonText);
-
+    auto pricelabel = tgui::Label::create();
     sf::Texture upgradebutton;
 
         if (!upgradebutton.loadFromFile("backgroundupgrade.png"))
@@ -124,11 +153,54 @@ void GUI::clickerupgrades(tgui::GuiBase& gui, const std::string ButtonText, cons
 
     // Set the position of the label
     button->setPosition({ posX, posY });
+    pricelabel->setPosition({ posX + 10, posY + textureSize.y - 30 });
+
+    auto updatePriceDisplay2 = [this, pricelabel, upgradetext]() 
+        
+        {
+            double upgradePrice = 0;
+            switch (upgradetext)
+            {
+            case ClickerupgradeType::Clicker2:
+                upgradePrice = calculateUpgradePrice(10, clicker2);
+                break;
+
+            case ClickerupgradeType::GoldenClicker:
+                upgradePrice = calculateUpgradePrice(250, goldenclicker);
+                break;
+
+            case ClickerupgradeType::PlatinunClicker:
+                upgradePrice = calculateUpgradePrice(6250, platinumclicker);
+                break;
+
+            case ClickerupgradeType::EmeraldClicker:
+                upgradePrice = calculateUpgradePrice(156250, emeraldclicker);
+                break;
+
+            case ClickerupgradeType::DiamondClicker:
+                upgradePrice = calculateUpgradePrice(3906250, diamondclicker);
+                break;
+
+            case ClickerupgradeType::MasterClicker:
+                upgradePrice = calculateUpgradePrice(97656250, masterclicker);
+                break;
+
+            case ClickerupgradeType::ChallengerClicker:
+                upgradePrice = calculateUpgradePrice(2441406250, challengerclicker);
+                break;
+            }
+
+            // Update the label's text with the new price
+            pricelabel->setText("Price: " + std::to_string(upgradePrice));
+        };
+
+    // Call the update function initially to display the price
+    updatePriceDisplay2();
 
     gui.add(button);
-
+    gui.add(pricelabel);
     // Button press event: Upgrade an upgrade depending on what case is used
-    button->onPress([this, PrintText, upgradetext]()
+    button->onPress([this, PrintText, upgradetext, updatePriceDisplay2, pricelabel]()
         {
 
             switch (upgradetext)
@@ -155,6 +227,10 @@ void GUI::clickerupgrades(tgui::GuiBase& gui, const std::string ButtonText, cons
 
             case ClickerupgradeType::MasterClicker:
                 upgradePrice = calculateUpgradePrice(97656250, masterclicker);
+                break;
+
+            case ClickerupgradeType::ChallengerClicker:
+                upgradePrice = calculateUpgradePrice(2441406250, challengerclicker);
                 break;
             }
 
@@ -202,7 +278,10 @@ void GUI::clickerupgrades(tgui::GuiBase& gui, const std::string ButtonText, cons
                 std::cout << upgradePrice << std::endl;
                 print_someting("Cannot afford upgrade!");  // Optional: Print a message for debugging
             }
-        });
+
+            updatePriceDisplay2();
+
+     });
 }
 
 //Function to handle all the building/CPS upgrades
@@ -210,6 +289,10 @@ void GUI::upgradeclicker(tgui::GuiBase& gui, const std::string ButtonText, const
     {
        
         auto button = tgui::Button::create(ButtonText);
+
+        auto pricelabel = tgui::Label::create();
+
+        pricelabel->setText("Price");
 
         sf::Texture upgrade2button;
 
@@ -232,12 +315,96 @@ void GUI::upgradeclicker(tgui::GuiBase& gui, const std::string ButtonText, const
         // Set the position of the label
         button->setPosition({ posX, posY });
 
-        gui.add(button);
+        pricelabel->setPosition({ posX + 10, posY + textureSize.y - 30 });
+    auto updatePriceDisplay = [this, pricelabel, upgradetext]() {
+        // Calculate the upgrade price based on the type of upgrade
+        double upgradePrice = 0;
+        switch (upgradetext)
+        {
+        case UpgradeType::Cursor:
+            upgradePrice = calculateUpgradePrice(1.5, cursor);
+            break;
+
+        case UpgradeType::Grandma:
+            upgradePrice = calculateUpgradePrice(10, grandma_count);
+            break;
+
+        case UpgradeType::Farm:
+            upgradePrice = calculateUpgradePrice(110, farm);
+            break;
+
+        case UpgradeType::Mine:
+            upgradePrice = calculateUpgradePrice(1200, mine);
+            break;
+
+        case UpgradeType::Factory:
+            upgradePrice = calculateUpgradePrice(13000, factory);
+            break;
+
+        case UpgradeType::Bank:
+            upgradePrice = calculateUpgradePrice(140000, bank);
+            break;
+
+        case UpgradeType::Temple:
+            upgradePrice = calculateUpgradePrice(2000000, temple);
+            break;
+
+        case UpgradeType::WizardTower:
+            upgradePrice = calculateUpgradePrice(33000000, wizard_tower);
+            break;
+
+        case UpgradeType::Shipment:
+            upgradePrice = calculateUpgradePrice(510000000, shipment);
+            break;
+
+        case UpgradeType::AlchemyLab:
+            upgradePrice = calculateUpgradePrice(7500000000, alchemy_lab);
+            break;
+
+        case UpgradeType::Portal:
+            upgradePrice = calculateUpgradePrice(100000000000, portal);
+            break;
+
+        case UpgradeType::TimeMachine:
+            upgradePrice = calculateUpgradePrice(1400000000000, time_machine);
+            break;
+
+        case UpgradeType::AntimatterCondenser:
+            upgradePrice = calculateUpgradePrice(17000000000000, antimatter_condenser);
+            break;
+
+        case UpgradeType::Prism:
+            upgradePrice = calculateUpgradePrice(210000000000000, prism);
+            break;
+
+        case UpgradeType::Chancemaker:
+            upgradePrice = calculateUpgradePrice(2600000000000000, chancemaker);
+            break;
+
+        case UpgradeType::FractalEngine:
+            upgradePrice = calculateUpgradePrice(31000000000000000, fractal_engine);
+            break;
+
+        case UpgradeType::Idleverse:
+            upgradePrice = calculateUpgradePrice(7100000000000000000, idleverse);
+            break;
+        }
+
+        // Update the label's text with the new price
+        pricelabel->setText("Price: " + std::to_string(upgradePrice));
+    };
+
+    // Call the update function initially to display the price
+    updatePriceDisplay();
+
+    // Add the button and the price label to the GUI
+    gui.add(button);
+    gui.add(pricelabel);
 
         // Button press event: Upgrade an upgrade depending on what case is used
-        button->onPress([this, PrintText, upgradetext]()
+            button->onPress([this, PrintText, upgradetext, updatePriceDisplay, pricelabel]()
             {
-
+                double upgradePrice = 0;
                 switch (upgradetext)
                 {
                 case UpgradeType::Cursor:
@@ -411,32 +578,10 @@ void GUI::upgradeclicker(tgui::GuiBase& gui, const std::string ButtonText, const
                     std::cout << upgradePrice << std::endl;
                     print_someting("Cannot afford upgrade!");  // Optional: Print a message for debugging
                 }
+
+                updatePriceDisplay();
+
             });
-}
-
-//Function to handle the "Cookies" label
-void GUI::cookie_label(tgui::GuiBase& gui, const std::string ButtonText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY)
-{
-    cookieLabel = tgui::Label::create(ButtonText);
-
-    cookieLabel->setSize({ sizeWidth, sizeHeight });
-    cookieLabel->setPosition({ posX, posY });
-    cookieLabel->getRenderer()->setTextColor(tgui::Color(255, 255, 255));
-    cookieLabel->setTextSize(25);
-
-    gui.add(cookieLabel);
-}
-
-// Function to handle the "Cookies Per Second" label
-void GUI::cps_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight,tgui::Layout posX, tgui::Layout posY) 
-{
-    cpslabel = tgui::Label::create(displaytext);
-    cpslabel->setSize({ sizeWidth, sizeHeight });
-    cpslabel->setPosition({ posX, posY });
-    cpslabel->getRenderer()->setTextColor(tgui::Color(255, 255, 255));
-    cpslabel->setTextSize(20);
-
-    gui.add(cpslabel);
 }
 
 // Public function to initialize the GUI
@@ -447,6 +592,7 @@ bool GUI::RunGUI(tgui::GuiBase& gui)
         clicker_button(gui, "", "Button clicked!", "", "25%, 50%");
         cps_label(gui, "Cookies Per Second: 0", "75%", "25%", "40%", "5%");
         cookie_label(gui,"Cookies: 0", "75%", "25%", "40%", "0%");
+        cpc_label(gui, "Cookies Per Click: 0", "75%", "25%", "40%", "10%");
 
         // Upgrade buttons will be placed on the right side, starting from 0% downwards
         float startingPosY = 0.0f;  // Starting position for the first upgrade
@@ -458,7 +604,7 @@ bool GUI::RunGUI(tgui::GuiBase& gui)
 
 
         // Calls the clickerupgrades, which are adjusted vertically
-        clickerupgrades(gui, "Clicker Upgrade", "Upgraded Clicker", "20%", "5%", tgui::Layout{"0%"}, tgui::Layout{std::to_string(startingPosY2) + "%"}, ClickerupgradeType::Clicker2);
+        clickerupgrades(gui, "Clicker Upgrade", "Upgraded Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::Clicker2);
         startingPosY2 += spacing2;
 
         clickerupgrades(gui, "Golden Clicker Upgrade", "Upgraded Golden Clicker", "20%", "5%", tgui::Layout{ "0%" }, tgui::Layout{ std::to_string(startingPosY2) + "%" }, ClickerupgradeType::GoldenClicker);
@@ -551,11 +697,14 @@ void GUI::updategui()
         std::cout << cps << std::endl; // Prints the CPS value for debugging
         cookies += cps;
 
+
+
         // Update the label text with the current cps count
         if (cps < 1000) {
 
             // No formatting needed for values below 1000
             this->cpslabel->setText("Cookies Per Second: " + std::to_string(cps));
+            this->cpclabel->setText("Cookies Per Click:" + std::to_string(cpc));
         }
         else {
             // For values >= 1000, find the appropriate unit

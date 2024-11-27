@@ -59,12 +59,15 @@ private:
 
     tgui::Label::Ptr upgradeslabel;
 
+    tgui::Label::Ptr cpclabel;
 
         void upgradeclicker(tgui::GuiBase & gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, UpgradeType upgradetext);
 
         void clickerupgrades(tgui::GuiBase& gui, const std::string ButtonText, const std::string PrintText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY, ClickerupgradeType upgradetext);
 
         void cookie_label(tgui::GuiBase & gui, const std::string ButtonText, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY);
+
+        void cpc_label(tgui::GuiBase& gui, std::string displaytext, tgui::Layout sizeWidth, tgui::Layout sizeHeight, tgui::Layout posX, tgui::Layout posY);
 
         void print_someting(const std::string & text);
 
@@ -73,9 +76,9 @@ private:
         int baseCost = 1;  // Example base cost (you can change this for each building upgrade =) )
 
         double upgradePrice = 0;
+        double upgradePrice2 = 0;
 
         double calculateUpgradePrice(long long baseCost, int currentCount);
-        double calculateUpgradeDisplayPrice(long long baseCost, int currentCount);
 
         // Upgrade counts
 
@@ -106,6 +109,7 @@ private:
         int masterclicker = 0;
         int challengerclicker = 0;
 
+        // Clock 
         sf::Clock cpstimer;
 
         // Main Components
