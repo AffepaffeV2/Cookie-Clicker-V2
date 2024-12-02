@@ -1,16 +1,90 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (SFML_Template.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   GUI.cpp
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(241,28): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(325,50): warning C4244: 'argument': conversion from 'double' to '__int64', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(411,58): warning C4244: 'argument': conversion from 'double' to '__int64', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(483,32): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(490,38): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(495,46): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(500,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(505,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-  Generating code
-  7 of 454 functions ( 1.5%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  SFML_Template.vcxproj -> C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\Release\GUI_SFML_Template.exe
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(10,1): error C2011: 'GUI': 'class' type redefinition
+  (compiling source file 'GUI.cpp')
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(6,6): error C2027: use of undefined type 'GUI'
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(7,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(8,1): warning C4508: '{ctor}': function should return a value; 'void' return type assumed
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(10,7): error C2027: use of undefined type 'GUI'
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(11,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(12,1): warning C4508: '{dtor}': function should return a value; 'void' return type assumed
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(15,11): error C2027: use of undefined type 'GUI'
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(21,11): error C2027: use of undefined type 'GUI'
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(23,5): error C2065: 'cpslabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(24,5): error C2065: 'cpslabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(25,5): error C2065: 'cpslabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(26,5): error C2065: 'cpslabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(27,5): error C2065: 'cpslabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(29,13): error C2065: 'cpslabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(33,11): error C2027: use of undefined type 'GUI'
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(35,5): error C2065: 'cpclabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(36,5): error C2065: 'cpclabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(37,5): error C2065: 'cpclabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(38,5): error C2065: 'cpclabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(39,5): error C2065: 'cpclabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(41,13): error C2065: 'cpclabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(45,11): error C2027: use of undefined type 'GUI'
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(47,5): error C2065: 'cookieLabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(49,5): error C2065: 'cookieLabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(50,5): error C2065: 'cookieLabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(51,5): error C2065: 'cookieLabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(52,5): error C2065: 'cookieLabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(54,13): error C2065: 'cookieLabel': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(58,11): error C2027: use of undefined type 'GUI'
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(160,11): error C2027: use of undefined type 'GUI'
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(163,21): error C2065: 'cpstimer': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(167,22): error C2065: 'cps': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(168,9): error C2065: 'cookies': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(168,20): error C2065: 'cps': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(175,13): error C2065: 'cps': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(178,13): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(178,77): error C2065: 'cps': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(179,13): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(179,76): error C2065: 'cpc': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(193,21): error C2065: 'cps': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(194,21): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(194,85): error C2065: 'cps': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(201,13): error C2065: 'cookies': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(204,13): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(204,69): error C2065: 'cookies': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(218,21): error C2065: 'cookies': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(219,21): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(219,77): error C2065: 'cookies': undeclared identifier
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.cpp(224,9): error C2065: 'cpstimer': undeclared identifier
+  main.cpp
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(10,1): error C2011: 'GUI': 'class' type redefinition
+  (compiling source file 'main.cpp')
+  C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\GUI.h(9,7):
+  see declaration of 'GUI'
+  
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\main.cpp(29,9): error C2079: 'guiObject' uses undefined class 'GUI'
+  Upgrades.cpp
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\Upgrades.cpp(300,50): warning C4244: 'argument': conversion from 'double' to '__int64', possible loss of data
+C:\Users\te22ah9\OneDrive - Curt Nicolin Gymnasiet AB\Programmering\Github Repositories\Nytt Projekt (Mall)\SFML_Template\Upgrades.cpp(384,54): warning C4244: 'argument': conversion from 'double' to '__int64', possible loss of data
